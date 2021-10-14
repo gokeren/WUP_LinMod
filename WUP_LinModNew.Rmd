@@ -115,8 +115,23 @@ If we look at the adjusted R-squared value of this GRIP data, it is smaller than
 
 #### predict model.2 at target point
 
+```{r}
+predict(model.2, new)
+```
+```{r}
+0.045463*94-4.809675
+```
+
+Our prediction value is -0.5361543.
+
 #### now add the model fit to our plot for model.2
   
+```{r}
+basicNN <- ggplot(data,aes(y=SIMS,x=GRIP))
+basicNN + geom_point() + geom_smooth(method=lm)
+```
+
+Here is the result of the scatterplot and our best fit line for our GRIP and SIMS data. If we use our prediction value it matches x=94 for GRIP.
 
 
 ## Model 3 SIM~ARM+GRIP
