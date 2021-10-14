@@ -136,10 +136,16 @@ Here is the result of the scatterplot and our best fit line for our GRIP and SIM
 
 ## Model 3 SIM~ARM+GRIP
 
+
+
 ### Numerical results (cor)
 
-`
-  
+```{r}
+cor(SIMS~ARM+GRIP,data=data)
+```
+
+We have a positive correlation between both arm and grip data. This number, 0.7326545, is higher than the correlation of just ARM and SIMS(0.6860073) or GRIP and SIMS(0.63980073).
+
 ### Inferential  (Build 2-dimentional model.3)
 
 #### predict model.3 at target point
