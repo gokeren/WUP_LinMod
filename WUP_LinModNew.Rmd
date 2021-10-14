@@ -86,14 +86,32 @@ Here is the best fit line for our data, and we can see that if we look for an x-
 
 ## Model 2 SIM~GRIP
 
+
+
 ### Now add in scatterplot
 
+```{r}
+plot(SIMS~GRIP,data=data)
+```
+
+This scatterplot shows a positive correlation since the points increase to the right.
 
 ### Numerical results 
 
+```{r}
+cor(SIMS~GRIP,data=data)
+```
+
+GRIP has a smaller correlation with SIMS with GRIP versus SIMS with ARM. 
 
 ### Inferential  (Build model.2)
-  
+
+```{r}
+model.2 <- lm(SIMS~GRIP,data=data)
+summary.lm(model.2)
+```
+
+If we look at the adjusted R-squared value of this GRIP data, it is smaller than the ARM data's adjusted R-square. In addition, the residual standard error is larger for this GRIP data than the ARM data. Both of these values indicate that Model 1 is doing a better job at explaining our prediction, and a better model.
 
 #### predict model.2 at target point
 
