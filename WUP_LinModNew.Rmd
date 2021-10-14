@@ -33,6 +33,11 @@ data <- read.csv(file="https://onlinestatbook.com/case_studies_rvls/physical_str
 ## Model 1 SIM~ARMS
 
 ### scatterplot
+```{r}
+plot(SIMS~ARM,data=data)
+```
+
+The scatterplot seems to show the plot is moving upward to the right. I suspect that there is a positive correlation due to the data going uphill to the right.
 
 ### Numerical results
 
