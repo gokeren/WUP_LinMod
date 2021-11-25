@@ -128,6 +128,10 @@ Our prediction value is -0.5361543.
 
 #### now add the model fit to our plot for model.2
   
+```{r}
+basicNN <- ggplot(data, aes(y=SIMS, x=GRIP))
+basicNN + geom_point() + geom_smooth(method = lm)
+```
 
 
 Here is the result of the scatter plot and our best fit line for our GRIP and SIMS data. If we use our prediction value it matches x=94 for GRIP.
@@ -167,15 +171,23 @@ predict(model.3, new, interval = "prediction")
 
 ### Model.1 vs Model.3
 ```{r}
-
+anova(model.1,model.3)
 ```
+Model 2 is actually model 3, and when we add up all of the errors in this model we have 29.45 errors versus model1. This means that GRIP and ARM in a model is better than just ARM.
+
 
 ### Model.2 vs Model.3
 
 ```{r}
-
+anova(model.2,model.3)
 ```
 
+This one went from 243.07 to 188.43 and this is also a significant change as we can see from the even smaller Pr(>F). This indicates model 3 is better versus model 2 that just used GRIP.
 
 ## Informally compare Model.1 with model.2
+
+```{r}
+anova(model.1, model.2)
+```
+Model 1 has a smaller RSS of 217.88 vs 243.07(model 2). Informally, model 1 is better using SIMS ~ ARM is a better model.
 
