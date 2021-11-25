@@ -128,12 +128,9 @@ Our prediction value is -0.5361543.
 
 #### now add the model fit to our plot for model.2
   
-```{r}
-basicNN <- ggplot(data,aes(y=SIMS,x=GRIP))
-basicNN + geom_point() + geom_smooth(method=lm)
-```
 
-Here is the result of the scatterplot and our best fit line for our GRIP and SIMS data. If we use our prediction value it matches x=94 for GRIP.
+
+Here is the result of the scatter plot and our best fit line for our GRIP and SIMS data. If we use our prediction value it matches x=94 for GRIP.
 
 
 ## Model 3 SIM~ARM+GRIP
@@ -150,13 +147,35 @@ We have a positive correlation between both arm and grip data. This number, 0.73
 
 ### Inferential  (Build 2-dimentional model.3)
 
+```{r}
+model.3 <- lm(SIMS~ARM + GRIP,data=data)
+summary.lm(model.3)
+```
+
+SIMS = -5.433871 + GRIP * 0.024470 + ARM * 0.037311 is the equation. The adjusted R-squared is 0.5358 which is bigger and the residual error is smaller and this indicates this as a superior model compared to the previous ones.
+
+
 #### predict model.3 at target point
   
+```{r}
+predict(model.3, new, interval = "prediction")
+```
+
+
 
 ## Comparing nested models ANOVA Test
 
 ### Model.1 vs Model.3
+```{r}
+
+```
+
 ### Model.2 vs Model.3
+
+```{r}
+
+```
+
 
 ## Informally compare Model.1 with model.2
 
